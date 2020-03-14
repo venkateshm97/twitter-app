@@ -1,7 +1,8 @@
-<h2> Profile Page </h2>
- <p>Email : <%= @user.email %> 
+
   <div class="container">
   <div class="row">
+    <h2 style="text-align: left;"> Profile Page </h2>
+    <p>Email : <%= @user.email %> 
  <form accept-charset="UTF-8" method='post' action='/user/follow'>
       <input type="hidden" name="follow_to" value="<%= @user.id %> ">
       <%if @is_following%> 

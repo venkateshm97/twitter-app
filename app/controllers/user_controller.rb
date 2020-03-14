@@ -2,7 +2,6 @@ class UserController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
   def show
-    print "\nparams = #{params}\n"
     id = params[:id]
     @user = User.find(id.to_i)
     @is_following = @user.followers.pluck(:follow_to).include?(current_user.id)
@@ -12,7 +11,6 @@ class UserController < ApplicationController
   end
 
   def follow
-    print "\nparams = #{params}\n"
     if params[:status] == 'follow'
       follow_to = params[:follow_to]
       @follow = Follower.new(follow_to: current_user.id, user_id: follow_to)

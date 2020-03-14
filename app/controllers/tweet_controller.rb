@@ -8,10 +8,8 @@ class TweetController < ApplicationController
   end
 
   def create_tweet
-    print "\nparams = #{params}\n"
     message = params[:message]
     @tweet = Tweet.new(message: message, user_id: current_user.id)
-    print "\ntweet = #{@tweet.to_json} current user: #{current_user.to_json}\n"
     if @tweet.save
       redirect_to tweet_index_path, notice: 'Tweet was successfully created.'
     else
