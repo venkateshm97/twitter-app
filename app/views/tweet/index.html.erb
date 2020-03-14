@@ -1,0 +1,35 @@
+<head>
+
+</head>
+<br><br>
+<div class="container">
+  <div class="row">
+    <form accept-charset="UTF-8" method='post' action='/tweet/create_tweet'>
+    <label for='tweet'>Tweet</label> 
+      <input type="text" name="message" placeholder='Enter your tweet'> 
+      <input type="submit" name='save' value='Save'>
+    </form>
+    <div class="row">
+      <div class="col-sm-4">
+    <h2> Tweets : </h2>
+     <% @tweet.each do |tweet| %>
+     <h3><%= tweet.message %></h3>
+      <p> by <%= tweet.email %> at <%= tweet.created_at %> <%= link_to "Profile", user_path(tweet.user_id) %></p>
+    <% end %>
+    </div>
+     <div class="col-sm-4">
+    <h2> Followers : </h2>
+     <% @followers_tweet.each do |tweet| %>
+     <h3><%= tweet.message %></h3>
+      <p> by <%= tweet.email %> at <%= tweet.created_at %> <%= link_to "Profile", user_path(tweet.user_id) %></p>
+    <% end %>
+    </div>
+    <div class="col-sm-4">
+    <h2> Users : </h2>
+     <% @users.each do |user| %>
+      <p><%= user.email %> <%= link_to "Profile", user_path(user.id) %></p>
+    <% end %>
+    </div>
+  </div>
+</div>
+</div>
