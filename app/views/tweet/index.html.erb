@@ -7,7 +7,7 @@
     <form accept-charset="UTF-8" method='post' action='/tweet/create_tweet'>
     <label for='tweet'>Tweet</label> 
       <input type="text" name="message" placeholder='Enter your tweet'> 
-      <input type="submit" name='save' value='Save'>
+      <input type="submit" name='save'  class = "btn btn-primary" value='Save'>
     </form>
     <div class="row">
       <div class="col-sm-4">
@@ -23,6 +23,7 @@
      <h3><%= tweet.message %></h3>
       <p> by <%= tweet.email %> at <%= tweet.created_at %> <%= link_to "Profile", user_path(tweet.user_id) %></p>
     <% end %>
+
     </div>
     <div class="col-sm-4">
     <h2> Users : </h2>
